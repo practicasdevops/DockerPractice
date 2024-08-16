@@ -26,3 +26,8 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/repodevops:latest .
+
+      - name: Push Docker image
+        if: success()
+        run: |
+         docker push ${{ secrets.DOCKER_USERNAME }}/repodevops:V1.0.0 
