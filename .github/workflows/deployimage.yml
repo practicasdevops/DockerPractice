@@ -25,4 +25,4 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/practicadocker:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/repodevops:latest .
