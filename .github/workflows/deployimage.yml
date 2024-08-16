@@ -30,4 +30,4 @@ jobs:
       - name: Push Docker image
         if: success()
         run: |
-         docker push ${{ secrets.DOCKER_USERNAME }}/repodevops:V1.0.0 
+         docker push ${{ secrets.DOCKER_USERNAME }}/repodevops:latest
