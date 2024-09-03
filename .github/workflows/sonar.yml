@@ -1,33 +1,25 @@
 on:
-  pull_request:
-    branches: [Develop]
-  
-name: Main Workflow
+    pull_request:
+        branches:
+            - Develop
+
+name: SonarCloud
+
 jobs:
-    create-sonar-project:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
-          with:
-            fetch-depth: 0
-  
-        - name: Create SonarCloud Project
-          uses: .github/actions/create-sonar-project@v1
-          env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-            SONAR_ORGANIZATION: practicasdevops
-  
     sonarcloud:
-      needs: create-sonar-project
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v4
-          with:
-            fetch-depth: 0
-  
-        - name: SonarCloud Scan
-          uses: sonarsource/sonarcloud-github-action@v2.1.0
-          env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: SonarCloud Scan
+              uses: sonarsource/sonarcloud-github-action@v3.0.0
+              env:
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+              with:
+                  args: >
+                      -Dsonar.organization=practicasdevops
+                      -Dsonar.projectKey=practicasdevops_DockerPractice2
+                      -Dsonar.sources=.
