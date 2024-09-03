@@ -1,0 +1,5 @@
+# Ignore the practica devops.code-workspace file
+practica devops.code-workspace
+
+# Ignore all JSON files
+*.json
