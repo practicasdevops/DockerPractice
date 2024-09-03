@@ -20,6 +20,6 @@ jobs:
                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
               with:
                   args: >
-                      -Dsonar.organization=practicasdevops
+                      -Dsonar.organization=practicasdevops-1
                       -Dsonar.projectKey=practicasdevops_DockerPractice2
                       -Dsonar.sources=.
