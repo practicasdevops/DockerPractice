@@ -3,3 +3,13 @@ practica devops.code-workspace
 
 # Ignore all JSON files
 *.json
+
+# Ignore the .terraform directory
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.env
+*.secret
+crash.log
+*.log
+.terraform.lock.hcl
